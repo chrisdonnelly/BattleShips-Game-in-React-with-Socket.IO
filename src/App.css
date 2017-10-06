@@ -1,0 +1,160 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.headline {
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+  width: 25%;
+  margin: auto;
+}
+
+.playeroneuistyle {
+  float:left;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.playertwouistyle {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.board {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+  width: 70%;
+  line-height:30px;
+  margin: auto;
+}
+
+.yourgrid {
+  height: 40%;
+  width: 50%;
+  margin: auto;
+}
+
+.targetgrid {
+  height: 20%;
+  width: 35%;
+  margin: auto;
+  padding-bottom: 2.5%;
+}
+
+.targettile {
+  float:left;
+  width: 15%;
+  height: 30%;
+  padding-bottom: 15%;
+  margin:0.3%;
+  background-color: #4271C9;
+  border: 2.5px;
+  border-style: black;
+}
+
+.owntile {
+  float:left;
+  width: 15%;
+  height: 5%;
+  padding-bottom: 15%;
+  margin:0.3%;
+  background-color: #4271C9;
+  border: 2.5px;
+  border-style: black;
+}
+
+.playeronecontainer {
+  float: left;
+  width: 15%;
+  height: 10%;
+  border: 2px;
+  margin: 10px 50px;
+  border-style: solid;
+  border-color: black;
+}
+
+.playertwocontainer {
+  float:right;
+  width:15%;
+  height: 10%;
+  border: 2px;
+  margin: 10px 50px;
+  border-style: solid;
+  border-color: black;
+}
+
+.trumpgamepieces {
+  float: left;
+  margin:10px;
+  width:20%;
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+}
+
+.kimgamepieces {
+  float: right;
+  margin:10px;
+  width:20%;
+  height:50%;
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+}
+
+.chatbox {
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+  width:80%;
+  margin: auto;
+}
+
