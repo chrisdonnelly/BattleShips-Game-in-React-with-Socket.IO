@@ -1,4 +1,5 @@
 .App {
+  font-family: Armalite Rifle;
   text-align: center;
 }
 
@@ -27,12 +28,27 @@
   to { transform: rotate(360deg); }
 }
 
+/* .game {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+} */
+
 .headline {
-  border: 2px;
-  border-style: solid;
-  border-color: black;
-  width: 25%;
+  font-family: Armalite Rifle;
+  font-size: xx-large;
+  width: auto;
   margin: auto;
+  padding-top: 20px;
+}
+
+.instructions {
+  font-size: medium;
 }
 
 .playeroneuistyle {
@@ -48,6 +64,7 @@
 }
 
 .playertwouistyle {
+  float: right;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -59,93 +76,126 @@
 }
 
 .board {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  padding: 2.5px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
   justify-content: center;
-  height: 80%;
+  height: 70%;
+  max-height: 70%;
   width: 70%;
-  line-height:30px;
+  min-width: 70%;
   margin: auto;
+}
+
+.preparegrid {
+
 }
 
 .yourgrid {
-  height: 40%;
-  width: 50%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  height: 30%;
+  max-height: 30%;
+  width: 40%;
+  min-width: 40%;
   margin: auto;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  -webkit-align-content: flex-end;
+  align-content: flex-end;
 }
 
 .targetgrid {
-  height: 20%;
-  width: 35%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  height: 30%;
+  max-height: 30%;
+  width: 40%;
+  min-width: 40%;
   margin: auto;
+  padding-top: 2.5%;
   padding-bottom: 2.5%;
 }
 
 .targettile {
-  float:left;
-  width: 15%;
-  height: 30%;
-  padding-bottom: 15%;
+  width: 8%;
+  min-width: 8%;
+
+  padding-bottom: 8%;
   margin:0.3%;
   background-color: #4271C9;
-  border: 2.5px;
-  border-style: black;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.targettile:hover {
+  background-color: red;
 }
 
 .owntile {
-  float:left;
-  width: 15%;
-  height: 5%;
-  padding-bottom: 15%;
+  width: 8%;
+  min-width: 8%;
+  padding-bottom: 8%;
   margin:0.3%;
   background-color: #4271C9;
-  border: 2.5px;
-  border-style: black;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.owntile:hover {
+  background-color: red;
 }
 
 .playeronecontainer {
-  float: left;
-  width: 15%;
-  height: 10%;
-  border: 2px;
-  margin: 10px 50px;
-  border-style: solid;
-  border-color: black;
+  width: auto;
+  height: auto;
+  /* margin: 10px 30px; */
 }
 
 .playertwocontainer {
-  float:right;
-  width:15%;
-  height: 10%;
-  border: 2px;
-  margin: 10px 50px;
-  border-style: solid;
-  border-color: black;
+  width:auto;
+  height: auto;
+  /* margin: 10px 30px; */
 }
 
 .trumpgamepieces {
-  float: left;
-  margin:10px;
-  width:20%;
-  border: 2px;
+  width: 100%;
+  height:auto;
+  margin: 10px;
+  border: 1px;
   border-style: solid;
   border-color: black;
 }
 
 .kimgamepieces {
-  float: right;
-  margin:10px;
-  width:20%;
-  height:50%;
-  border: 2px;
+  width:100%;
+  height:auto;
+  margin: 10px;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.gamepiece {
+  font-size: xx-small;
+  border: 1px;
   border-style: solid;
   border-color: black;
 }
@@ -155,6 +205,7 @@
   border-style: solid;
   border-color: black;
   width:80%;
+  height: auto;
   margin: auto;
 }
 

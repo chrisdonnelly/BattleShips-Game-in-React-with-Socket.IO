@@ -8,27 +8,31 @@ class GridComponent extends Component {
         super(props)
         this.state = {
             board: [
-                null, null, null, null, null,
-                null, null, null, null, null,
-                null, null, null, null, null,
-                null, null, null, null, null,
-                null, null, null, null, null,
-                null, null, null, null, null,
-                null, null, null, null, null,
-                null
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null
             ]
         }
     }
 
     render() {
         return (
-            <section className={this.props.classref} tileclassref={this.props.tileclassref}>
+            <section className={this.props.classref}>
                 {this.state.board.map((value, index) => {
                     return (
-                        <Tile className={this.props.tileclassref}
-                        key={index}
-                        location={index}
-                        value={value} />
+                        <Tile classref={this.props.tileclassref}
+                            key={index}
+                            location={index}
+                            value={value}
+                            recordSelection={this.props.recordSelection}
+                        />
                     )
                 })}
             </section>
