@@ -6,11 +6,11 @@ class GamePieceContainer extends Component {
     render() {
         return (
             <section className={this.props.classref}>
-                <GamePiece classref="gamepiece" piecename={this.props.pieceone} placePiece={this.props.placePiece} />
-                <GamePiece classref="gamepiece" piecename={this.props.piecetwo} placePiece={this.props.placePiece}/>
-                <GamePiece classref="gamepiece" piecename={this.props.piecethree} placePiece={this.props.placePiece}/>
-                <GamePiece classref="gamepiece" piecename={this.props.piecefour} placePiece={this.props.placePiece}/>
-                <GamePiece classref="gamepiece" piecename={this.props.piecefive} placePiece={this.props.placePiece}/>
+                <GamePiece classref="gamepiece" piecename={this.props.pieceone} />
+                <GamePiece classref="gamepiece" piecename={this.props.piecetwo} />
+                <GamePiece classref="gamepiece" piecename={this.props.piecethree} />
+                <GamePiece classref="gamepiece" piecename={this.props.piecefour} />
+                <GamePiece classref="gamepiece" piecename={this.props.piecefive} />
             </section>
         )
     }

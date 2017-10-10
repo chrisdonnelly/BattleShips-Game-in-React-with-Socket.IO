@@ -8,7 +8,7 @@ class GamePiece extends Component {
     }
 
     selectPiece() {
-        this.props.placePiece()
+        this.props.placePiece(this.props.piecename)
     }
 
     render() {

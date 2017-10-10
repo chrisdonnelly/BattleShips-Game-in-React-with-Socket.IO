@@ -1,61 +1,187 @@
 import React, { Component } from 'react';
-import BoardContainer from './BoardContainer.jsx'
-import PlayerContainer from './PlayerContainer.jsx'
-import GamePieceContainer from './GamePieceContainer.jsx'
-// import ChatBoxContainer from './ChatBoxContainer.jsx'
-import Header from '../components/HeaderComponent.jsx'
-import GamePiece from '../models/GamePiece.js'
+import BoardContainer from './BoardContainer.jsx';
+import PlayerContainer from './PlayerContainer.jsx';
+import GamePieceContainer from './GamePieceContainer.jsx';
+// import ChatBoxContainer from './ChatBoxContainer.jsx';
+import Header from '../components/HeaderComponent.jsx';
+import Button from '../components/ButtonComponent.jsx';
+import GamePiece from '../models/GamePiece.js';
 
 class GameContainer extends Component {
 
     constructor(props) {
         super(props)
+
+        const whiteHousePiece = new GamePiece("WhiteHouse", 2);
+        const pentagonPiece = new GamePiece("Pentagon", 2);
+        const pacificCommandPiece = new GamePiece("Pacific Command", 3);
+        const navalBaseGuamPiece = new GamePiece("Naval Base Guam", 4);
+        const theSeventhFleetPiece = new GamePiece("The Seventh Fleet", 5);
+
+        const pyongyangPiece = new GamePiece("Pyongyang", 2);
+        const chagangProvincePiece = new GamePiece("Chagang Province", 2);
+        const koreanPeoplesArmyGroundForcePiece = new GamePiece("Korean People's Army Ground Force", 3);
+        const koreanPeoplesArmyStrategicForce = new GamePiece("Korean People's Army Strategic Force", 4);
+        const ministryOfStateSecurityPiece = new GamePiece("Ministry of State Security", 5);
+
+        var boxOfPieces = [];
+
+        boxOfPieces.push(
+            whiteHousePiece,
+            pentagonPiece,
+            pacificCommandPiece,
+            navalBaseGuamPiece,
+            theSeventhFleetPiece,
+            pyongyangPiece,
+            chagangProvincePiece,
+            koreanPeoplesArmyGroundForcePiece,
+            koreanPeoplesArmyStrategicForce,
+            ministryOfStateSecurityPiece
+        );
+
         this.state = {
             currentPlayer: null,
             roundCounter: 0,
             winner: null,
-            currentlySelectedTile: null,
+            selectedTile: null,
+            boxOfPieces: boxOfPieces,
         }
     }
 
-    // componentDidMount() {
-    //     var trumpGamePieceOne = new GamePiece("WhiteHouse", 2)
-    //     console.log(trumpGamePieceOne);
-    //     this.setState({currentPiece: trumpGamePieceOne});
-    //     // setPiecePosition(trumpGamePieceOne);
-    // }
+    placePieces(boxOfPieces) {
 
-    // setPiecePosition(index) {
-    //     console.log(index)
-    //     console.log(this.state.currentPiece);
-    //     // do x times where x is equal to piece.length 
-    //     // select a starting square for the piece - user click square
-    //     // wait for user input.  
-    //     // add that location value to the array 
-    //     // repeat - value must be + or - 1 or 10 compared to starting value
-    //     // add that location to array
-    //     // continue until array.length = piece.length 
-    // }
+        var boardPositions = [...Array(100).keys()];
+        var leftEdge = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90];
+        var rightEdge = [9, 19, 29, 39, 49, 59, 69, 79, 89, 99];
 
-    placePiece() {
-        const whiteHousePiece = new GamePiece("WhiteHosue", 2);
-        console.log(whiteHousePiece);
-        var instruction = document.getElementsByClassName("instructions");
-        console.log("dom element", instruction);
-        instruction.innerText="Please place your piece"; 
-        console.log(this.state.currentlySelectedTile);
+        console.log(this.state.boxOfPieces);
 
+        this.state.boxOfPieces.forEach(function (piece) {
 
-        
+            var nextSquare = [-1, 1, -10, 10];
 
+            var a = (boardPositions[Math.floor(Math.random() * boardPositions.length)]);
+
+            var testLeftArray = [];
+            testLeftArray.push(a);
+
+            var i = null;
+
+            for (i = 1; i < piece.length; i++) {
+                testLeftArray.push(testLeftArray[testLeftArray.length - 1] - 1)
+            };
+
+            testLeftArray.forEach(function (value) {
+                if (rightEdge.includes(value) === true || value < 0) {
+                    var index = nextSquare.indexOf(-1);
+                    if (index > -1) {
+                        nextSquare.splice(index, 1)
+                    }
+                    else {
+                        return;
+                    }
+                }
+                else {
+                    return;
+                }
+            });
+
+            var testRightArray = [];
+            testRightArray.push(a);
+
+            for (i = 1; i < piece.length; i++) {
+                testRightArray.push(testRightArray[testRightArray.length - 1] + 1)
+            };
+
+            testRightArray.forEach(function (value) {
+                if (leftEdge.includes(value) === true || value > 99) {
+                    var index = nextSquare.indexOf(1);
+                    if (index > -1) {
+                        nextSquare.splice(index, 1)
+                    }
+                    else {
+                        return;
+                    }
+                }
+                else {
+                    return
+                }
+            });
+
+            var testUpArray = [];
+            testUpArray.push(a);
+
+            for (i = 1; i < piece.length; i++) {
+                testUpArray.push(testUpArray[testUpArray.length - 1] - 10)
+            };
+
+            testUpArray.forEach(function (value) {
+                if (value < 0) {
+                    var index = nextSquare.indexOf(-10);
+                    if (index > -1) {
+                        nextSquare.splice(index, 1)
+                    }
+                    else {
+                        return
+                    }
+                }
+                else {
+                    return
+                }
+            });
+
+            var testDownArray = [];
+            testDownArray.push(a);
+
+            for (i = 1; i < piece.length; i++) {
+                testDownArray.push(testDownArray[testDownArray.length - 1] + 10)
+            };
+
+            testDownArray.forEach(function (value) {
+                if (value > 99) {
+                    var index = nextSquare.indexOf(+10);
+                    if (index > -1) {
+                        nextSquare.splice(index, 1)
+                    }
+                    else {
+                        return
+                    };
+                }
+                else {
+                    return;
+                }
+            });
+
+            if (nextSquare.length > 1) {
+                piece.location.push(a);
+            } 
+            else {
+                return
+            }
+
+            var b = null;
+            var last = piece.location[piece.location.length - 1]
+            var nextStep = (nextSquare[Math.floor(Math.random() * nextSquare.length)]);
+            b = last + nextStep
+            piece.location.push(b);
+
+            var z = 2
+            while (z < piece.length) {
+                var x = piece.location[piece.location.length - 1] + nextStep
+                piece.location.push(x)
+                z++
+            }
+            console.log(piece.type)
+            console.log(piece.location)
+        })
+    };
+
+    startGame() {
 
     }
 
     recordSelection(tileIndex) {
-        this.setState({ currentlySelectedTile: tileIndex });
-        console.log("On Click", tileIndex);
-        console.log(this);
-        console.log(this.state.currentlySelectedTile);
+        this.setState({ selectedTile: tileIndex });
     }
 
     render() {
@@ -72,9 +198,10 @@ class GameContainer extends Component {
                         piecethree="Pacific Command"
                         piecefour="Naval Base Guam"
                         piecefive="The Seventh Fleet"
-                        placePiece={this.placePiece.bind(this)}
                     />
                 </div>
+                <Button handleClick={this.placePieces.bind(this)} label="Deploy Strategic Targets" className="setpieces" />
+                <Button handleClick={this.startGame.bind(this)} label="Global Thermonuclear War" />
                 <div className="playertwouistyle">
                     <PlayerContainer classref="playertwocontainer" urlref="./kimjongunsprite.png" />
                     <GamePieceContainer
@@ -84,7 +211,6 @@ class GameContainer extends Component {
                         piecethree="Korean People's Army Ground Force"
                         piecefour="Korean People's Army Strategic Force"
                         piecefive="Ministry of State Security"
-                        placePiece={this.placePiece.bind(this)}
                     />
                 </div>
                 <BoardContainer recordSelection={this.recordSelection.bind(this)} />
