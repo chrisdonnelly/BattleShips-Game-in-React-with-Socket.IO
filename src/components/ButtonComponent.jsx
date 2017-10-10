@@ -10,7 +10,8 @@ class Button extends Component {
     return (
       <button
         style={buttonStyle}
-        onClick={this.props.handleClick}>{this.props.label}
+        onClick={this.props.handleClick}>
+        {this.props.label}
         </button>
     );
   }

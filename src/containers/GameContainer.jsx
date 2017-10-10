@@ -154,7 +154,7 @@ class GameContainer extends Component {
 
             if (nextSquare.length > 1) {
                 piece.location.push(a);
-            } 
+            }
             else {
                 return
             }
@@ -177,11 +177,69 @@ class GameContainer extends Component {
     };
 
     startGame() {
-
+        var coinToss = ["Trump", "Kim"]
+        var startingPlayer = (coinToss[Math.floor(Math.random() * coinToss.length)])
+        this.setState({ currentPlayer: startingPlayer });
     }
 
     recordSelection(tileIndex) {
+        var round = this.state.roundCounter + 1;
+        this.setState({ roundCounter: round });
         this.setState({ selectedTile: tileIndex });
+    }
+
+    hitOrMiss() {
+        var nuke = this.state.selectedTile;
+        if (this.state.currentPlayer === "Kim") {
+            checkTrumpPieces(nuke);
+        }
+        else if (this.state.currentPlayer === "Trump") {
+            checkKimPieces(nuke);
+        }
+    }
+
+    checkTrumpPieces(nuke) {
+        
+        if (this.state.boxOfPieces.whiteHousePiece.location.includes(nuke) === true) {
+            hit();
+        }
+        else if (this.state.boxOfPieces.pentagonPiece.location.includes(nuke) === true) {
+            hit();
+        }
+        else if (this.state.boxOfPieces.pacificCommandPiece.location.includes(nuke) === true) {
+            hit();
+        }
+        else if (this.state.boxOfPieces.navalBaseGuamPiece.location.includes(nuke) === true) {
+            hit();
+        }
+        else if (this.state.boxOfPieces.theSeventhFleetPiece.location.includes(nuke) === true) {
+            hit();
+        }
+        else {
+            miss();
+        }
+    }
+
+    checkKimPieces() {
+
+    }
+
+    hit() {
+
+    }
+
+    miss() {
+
+    }
+
+    switchPlayer() {
+        // after you've selected a tile and had it checked against opponents arrays switch current player to the other player 
+
+    }
+
+    checkWinner() {
+        // iterate through all pieces and check if all are destroyed 
+
     }
 
     render() {

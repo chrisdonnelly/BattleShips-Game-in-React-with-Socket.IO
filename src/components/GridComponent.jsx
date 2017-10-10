@@ -39,4 +39,5 @@ class GridComponent extends Component {
         )
     }
 }
+
 export default GridComponent;
