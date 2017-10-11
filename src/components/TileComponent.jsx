@@ -4,6 +4,9 @@ class Tile extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+
+        }
         this.selectTile = this.selectTile.bind(this);
     }
 
@@ -13,7 +16,10 @@ class Tile extends Component {
 
     render() {
         return (
-            <div className={this.props.classref} onClick={this.selectTile}>
+            <div
+                className={this.props.classref}
+                onClick={this.selectTile}
+                id={this.props.value}>
             </div>
         )
     }

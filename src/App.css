@@ -6,6 +6,7 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  
 }
 
 .App-header {
@@ -23,21 +24,10 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
+@keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-/* .game {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  justify-content: center;
-} */
 
 .headline {
   font-family: Armalite Rifle;
@@ -61,6 +51,7 @@
   -webkit-flex-direction: column;
   flex-direction: column;
   justify-content: center;
+  width: 12%;
 }
 
 .playertwouistyle {
@@ -73,6 +64,7 @@
   -webkit-flex-direction: column;
   flex-direction: column;
   justify-content: center;
+  width: 12%;
 }
 
 .board {
@@ -92,11 +84,7 @@
   margin: auto;
 }
 
-.preparegrid {
-
-}
-
-.yourgrid {
+.usagrid {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -106,8 +94,8 @@
   flex-flow: row wrap;
   height: 30%;
   max-height: 30%;
-  width: 40%;
-  min-width: 40%;
+  width: 30%;
+  min-width: 30%;
   margin: auto;
   padding-top: 2.5%;
   padding-bottom: 2.5%;
@@ -115,7 +103,7 @@
   align-content: flex-end;
 }
 
-.targetgrid {
+.nkoreagrid {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -125,17 +113,16 @@
   flex-flow: row wrap;
   height: 30%;
   max-height: 30%;
-  width: 40%;
-  min-width: 40%;
+  width: 30%;
+  min-width: 30%;
   margin: auto;
   padding-top: 2.5%;
   padding-bottom: 2.5%;
 }
 
-.targettile {
+.nkoreatile {
   width: 8%;
   min-width: 8%;
-
   padding-bottom: 8%;
   margin:0.3%;
   background-color: #4271C9;
@@ -144,11 +131,11 @@
   border-color: black;
 }
 
-.targettile:hover {
+.nkoreatile:hover {
   background-color: red;
 }
 
-.owntile {
+.usatile {
   width: 8%;
   min-width: 8%;
   padding-bottom: 8%;
@@ -159,7 +146,7 @@
   border-color: black;
 }
 
-.owntile:hover {
+.usatile:hover {
   background-color: red;
 }
 
@@ -185,7 +172,7 @@
 }
 
 .kimgamepieces {
-  width:100%;
+  width: 100%;
   height:auto;
   margin: 10px;
   border: 1px;
@@ -194,17 +181,27 @@
 }
 
 .gamepiece {
-  font-size: xx-small;
+  font-size: large;
   border: 1px;
   border-style: solid;
   border-color: black;
+}
+
+#HIT {
+  /* animation: spin infinite 20s linear; */
+  background-color: black;
+}
+
+#MISS {
+  /* animation: spin infinite 20s linear; */
+  background-color: white;
 }
 
 .chatbox {
   border: 2px;
   border-style: solid;
   border-color: black;
-  width:80%;
+  width: auto%;
   height: auto;
   margin: auto;
 }

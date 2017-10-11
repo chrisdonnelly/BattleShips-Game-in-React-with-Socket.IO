@@ -5,7 +5,9 @@ class Header extends Component {
     render() {
         return (
             <div className="headline">
-            <h3>Dictator-Ships!</h3>
+            <h1>Dictator-Ships!</h1>
+            <p>Round {this.props.round} - Current Player is {this.props.player}  </p>
+            <p className="message">{this.props.message}</p>
             </div>
         )
     }

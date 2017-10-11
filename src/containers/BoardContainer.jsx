@@ -6,8 +6,19 @@ class BoardContainer extends Component {
     render() {
         return (
             <section className="board">
-                <GridComponent classref="yourgrid" tileclassref="owntile" recordSelection={this.props.recordSelection} />
-                <GridComponent classref="targetgrid" tileclassref="targettile" recordSelection={this.props.recordSelection} />
+                <GridComponent
+                    classref="usagrid"
+                    tileclassref="usatile"
+                    recordSelection={this.props.recordSelection}
+                    board={this.props.usaboard}
+                    country="U.S.A"
+                />
+                <GridComponent
+                    classref="nkoreagrid"
+                    tileclassref="nkoreatile"
+                    recordSelection={this.props.recordSelection}
+                    board={this.props.nkoreaboard}
+                    country="N.Korea" />
             </section>
         )
     }
