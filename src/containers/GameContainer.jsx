@@ -264,8 +264,6 @@ class GameContainer extends Component {
 
         var nuke = tileIndex;
 
-        console.log("Value of nuke:", nuke);
-
         if (this.state.currentPlayer.valueOf() === "Trump") {
             if (this.state.kimHitChecker.includes(nuke) === true) {
                 this.hit(nuke);
