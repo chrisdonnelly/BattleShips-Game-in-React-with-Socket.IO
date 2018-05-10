@@ -6,7 +6,6 @@ import ChatBoxContainer from './ChatBoxContainer.jsx';
 import Header from '../components/HeaderComponent.jsx';
 import Button from '../components/ButtonComponent.jsx';
 import GamePiece from '../models/GamePiece.js';
-// import BoardSetupLogic from '../models/BoardSetupLogic.js'
 
 class GameContainer extends Component {
 
@@ -25,24 +24,8 @@ class GameContainer extends Component {
         const koreanPeoplesArmyStrategicForce = new GamePiece("K.P.A Strategic Force", 4);
         const ministryOfStateSecurityPiece = new GamePiece("Ministry of State Security", 5);
 
-        var boxOfTrumpPieces = [];
-        var boxOfKimPieces = [];
-
-        boxOfTrumpPieces.push(
-            whiteHousePiece,
-            pentagonPiece,
-            pacificCommandPiece,
-            navalBaseGuamPiece,
-            theSeventhFleetPiece,
-        );
-
-        boxOfKimPieces.push(
-            pyongyangPiece,
-            chagangProvincePiece,
-            koreanPeoplesArmyGroundForcePiece,
-            koreanPeoplesArmyStrategicForce,
-            ministryOfStateSecurityPiece
-        )
+        var boxOfTrumpPieces = [whiteHousePiece, pentagonPiece, pacificCommandPiece, navalBaseGuamPiece, theSeventhFleetPiece];
+        var boxOfKimPieces = [pyongyangPiece.chagangProvincePiece, koreanPeoplesArmyGroundForcePiece. koreanPeoplesArmyStrategicForce, ministryOfStateSecurityPiece];
 
         var board = [
             null, null, null, null, null, null, null, null, null, null,
@@ -80,8 +63,7 @@ class GameContainer extends Component {
 
         var a = (boardPositions[Math.floor(Math.random() * boardPositions.length)]);
 
-        var testLeftArray = [];
-        testLeftArray.push(a);
+        var testLeftArray = [a];
 
         var i = null;
 
@@ -104,8 +86,7 @@ class GameContainer extends Component {
             }
         });
 
-        var testRightArray = [];
-        testRightArray.push(a);
+        var testRightArray = [a];
 
         for (i = 1; i < piece.length; i++) {
             testRightArray.push(testRightArray[testRightArray.length - 1] + 1)
@@ -126,8 +107,7 @@ class GameContainer extends Component {
             }
         });
 
-        var testUpArray = [];
-        testUpArray.push(a);
+        var testUpArray = [a];
 
         for (i = 1; i < piece.length; i++) {
             testUpArray.push(testUpArray[testUpArray.length - 1] - 10)
@@ -148,8 +128,7 @@ class GameContainer extends Component {
             }
         });
 
-        var testDownArray = [];
-        testDownArray.push(a);
+        var testDownArray = [a];
 
         for (i = 1; i < piece.length; i++) {
             testDownArray.push(testDownArray[testDownArray.length - 1] + 10)
@@ -174,10 +153,9 @@ class GameContainer extends Component {
             piece.location.push(a);
             controlArray.push(a);
 
-            var b = null;
             var lastStep = piece.location[piece.location.length - 1];
             var nextStep = (nextSquare[Math.floor(Math.random() * nextSquare.length)]);
-            b = lastStep + nextStep;
+            var b = lastStep + nextStep;
             piece.location.push(b);
             controlArray.push(b);
 
@@ -188,8 +166,6 @@ class GameContainer extends Component {
                 controlArray.push(x);
                 z++;
             }
-            console.log(piece.type)
-            console.log(piece.location)
         }
         else {
             piece.location = [];
@@ -283,8 +259,10 @@ class GameContainer extends Component {
     };
 
     hit(nuke) {
+       
         this.bomb();
-        var boardUpdate = [];
+       
+       var boardUpdate = [];
 
         if (this.state.currentPlayer.valueOf() === "Trump") {
             boardUpdate = this.state.nkoreaboard.slice();
@@ -306,7 +284,9 @@ class GameContainer extends Component {
     }
 
     miss(nuke) {
+        
         this.missBomb()
+        
         var boardUpdate = [];
 
         if (this.state.currentPlayer.valueOf() === "Trump") {
@@ -347,13 +327,13 @@ class GameContainer extends Component {
     checkWinner() {
         if (this.state.trumpTotalDamage === 16) {
             this.setState({
-                message: "Kim Wins!! America is lost in a nuclear fire more orange than Trump",
+                message: "Kim Wins!!",
                 winner: "Kim"
             })
         }
         else if (this.state.kimTotalDamage === 16) {
             this.setState({
-                message: "Trump Wins!! South Korea is really just Korea now",
+                message: "Trump Wins!!",
                 winner: "Trump"
             })
         }
